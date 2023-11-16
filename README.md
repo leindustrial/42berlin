@@ -1,2 +1,2 @@
-# 42berlin
-Core curriculum with some changes
+libft with some changes
+:-)
