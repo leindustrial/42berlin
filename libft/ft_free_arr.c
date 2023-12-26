@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isduplicate.c                                   :+:      :+:    :+:   */
+/*   ft_free_arr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ole <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: ole <ole@student.42berlin.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/15 12:08:09 by ole               #+#    #+#             */
-/*   Updated: 2023/06/15 12:08:32 by ole              ###   ########.fr       */
+/*   Created: 2023/12/10 11:02:10 by ole               #+#    #+#             */
+/*   Updated: 2023/12/10 11:02:14 by ole              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isduplicate(int len, long int *arr)
+#include "libft.h"
+
+void	ft_free_arr(char **arr)
 {
-	int	i;
-	int	j;
+	size_t	i;
 
 	i = 0;
-	while (i < len - 1)
+	while (arr[i])
 	{
-		j = i + 1;
-		while (j < len)
-		{
-			if (arr[i] == arr[j])
-				return (0);
-			j++;
-		}
+		if (arr[i])
+			free(arr[i]);
 		i++;
 	}
-	return (1);
+	free(arr);
 }

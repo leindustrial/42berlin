@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isduplicate.c                                   :+:      :+:    :+:   */
+/*   ft_issorted.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ole <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/15 12:08:09 by ole               #+#    #+#             */
-/*   Updated: 2023/06/15 12:08:32 by ole              ###   ########.fr       */
+/*   Created: 2023/06/16 14:29:16 by ole               #+#    #+#             */
+/*   Updated: 2023/06/16 14:30:53 by ole              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isduplicate(int len, long int *arr)
+int	ft_issorted(int len, long int *arr)
 {
 	int	i;
 	int	j;
@@ -21,7 +21,7 @@ int	ft_isduplicate(int len, long int *arr)
 		j = i + 1;
 		while (j < len)
 		{
-			if (arr[i] == arr[j])
+			if (arr[i] > arr[j])
 				return (0);
 			j++;
 		}

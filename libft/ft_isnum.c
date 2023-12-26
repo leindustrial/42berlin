@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-int	ft_isnum(char *av)
+int	ft_isnum(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (av[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (ft_issign(av[i]) == 1)
+		if (ft_issign(str[i]) == 1)
 			i++;
-		if (ft_isdigit(av[i]) == 0)
+		if (ft_isdigit(str[i]) == 0)
 			return (0);
 		i++;
 	}

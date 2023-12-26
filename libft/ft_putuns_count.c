@@ -1,31 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isduplicate.c                                   :+:      :+:    :+:   */
+/*   ft_putuns_count.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ole <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/15 12:08:09 by ole               #+#    #+#             */
-/*   Updated: 2023/06/15 12:08:32 by ole              ###   ########.fr       */
+/*   Created: 2023/03/28 15:40:04 by ole               #+#    #+#             */
+/*   Updated: 2023/03/30 10:52:11 by ole              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isduplicate(int len, long int *arr)
-{
-	int	i;
-	int	j;
+#include "libft.h"
 
-	i = 0;
-	while (i < len - 1)
+static int	ft_count(long num)
+{
+	int	count;
+
+	count = 0;
+	while (num != 0)
 	{
-		j = i + 1;
-		while (j < len)
-		{
-			if (arr[i] == arr[j])
-				return (0);
-			j++;
-		}
-		i++;
+		num = num / 10;
+		count++;
 	}
-	return (1);
+	return (count);
+}
+
+int	ft_putuns_count(long nbr)
+{
+	int	len;
+
+	if (nbr == 0)
+		return (write (1, "0", 1));
+	len = 0;
+	len += ft_count(nbr);
+	if (nbr >= 10)
+	{
+		ft_putuns_count(nbr / 10);
+		ft_putuns_count(nbr % 10);
+	}
+	else
+	{
+		nbr = nbr + '0';
+		write (1, &nbr, 1);
+	}
+	return (len);
 }

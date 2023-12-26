@@ -16,35 +16,38 @@ COLOR	=	\033[0;38;5;11m
 RESET	=	\033[00m
 
 SRCS	=	ft_atoi.c\
-		ft_base.c\
 		ft_bzero.c\
 		ft_calloc.c\
 		ft_isalnum.c\
 		ft_isalpha.c\
 		ft_isascii.c\
+		ft_isint.c\
 		ft_isdigit.c\
 		ft_isduplicate.c\
 		ft_isnum.c\
 		ft_isprint.c\
 		ft_issign.c\
+		ft_issorted.c\
 		ft_itoa.c\
 		ft_memchr.c\
 		ft_memcmp.c\
 		ft_memcpy.c\
 		ft_memmove.c\
 		ft_memset.c\
+		ft_printf.c\
 		ft_putchar.c\
 		ft_putchar_count.c\
 		ft_putchar_fd.c\
-		ft_puthex.c\
+		ft_putendl.c\
 		ft_putendl_fd.c\
+		ft_puthex_ptr_count.c\
 		ft_putnbr.c\
 		ft_putnbr_count.c\
 		ft_putnbr_fd.c\
+		ft_putuns_count.c\
 		ft_putstr.c\
 		ft_putstr_count.c\
 		ft_putstr_fd.c\
-		ft_putptr.c\
 		ft_split.c\
 		ft_strchr.c\
 		ft_strdup.c\
@@ -54,7 +57,6 @@ SRCS	=	ft_atoi.c\
 		ft_strlcpy.c\
 		ft_strlen.c\
 		ft_strmapi.c\
-		ft_strcmp.c\
 		ft_strncmp.c\
 		ft_strnstr.c\
 		ft_strrchr.c\
@@ -70,7 +72,9 @@ SRCS	=	ft_atoi.c\
 		ft_lstdelone.c\
 		ft_lstclear.c\
 		ft_lstiter.c\
-		ft_lstmap.c
+		ft_lstmap.c\
+		ft_free_arr.c \
+		get_next_line.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -82,8 +86,9 @@ HEADER	=	libft.h
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) $(HEADER)
 		@ar -r $(NAME) $(OBJS)
+		@rm -f $(OBJS)
 		@printf "\n$(COLOR)o----------------------------------------o\n"
 		@printf "$(COLOR)|$(RESET)           ! libft compiled !           $(COLOR)|\n"
 		@printf "o----------------------------------------o$(RESET)\n\n"

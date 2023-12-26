@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isduplicate.c                                   :+:      :+:    :+:   */
+/*   ft_isint.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ole <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/15 12:08:09 by ole               #+#    #+#             */
-/*   Updated: 2023/06/15 12:08:32 by ole              ###   ########.fr       */
+/*   Created: 2023/06/16 11:33:50 by ole               #+#    #+#             */
+/*   Updated: 2023/06/16 11:36:46 by ole              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isduplicate(int len, long int *arr)
+#include "libft.h"
+
+int	ft_isint(int len, long int *arr)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	while (i < len - 1)
+	while (i < len)
 	{
-		j = i + 1;
-		while (j < len)
-		{
-			if (arr[i] == arr[j])
-				return (0);
-			j++;
-		}
+		if (arr[i] > INT_MAX || arr[i] < INT_MIN)
+			return (0);
 		i++;
 	}
 	return (1);
